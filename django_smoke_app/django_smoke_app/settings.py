@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'smoke_app',
+    'smoke_app.apps.SmokeAppConfig',
+    'rest_framework',
+
 ]
 
 MIDDLEWARE = [
