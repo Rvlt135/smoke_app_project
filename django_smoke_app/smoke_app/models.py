@@ -3,6 +3,7 @@ import uuid
 
 
 class Strain(models.Model):
+    objects = None
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
     name = models.CharField(max_length=100)
     slug = models.SlugField()

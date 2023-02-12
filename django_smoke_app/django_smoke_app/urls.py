@@ -15,9 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from smoke_app.views import FindStrainAPIView
+from smoke_app.views import StrainListAPIView
+from rest_framework_swagger.views import get_swagger_view
+
+from django.views.generic import TemplateView
+#schema_view = get_swagger_view(open()title='Pastebin API')
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/strain/', FindStrainAPIView.as_view()),
+    path('api/v1/strain/', StrainListAPIView.as_view()),
 ]

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'smoke_app.apps.SmokeAppConfig',
     'rest_framework',
+    'rest_framework_swagger',
 
 ]
 
