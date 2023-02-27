@@ -7,12 +7,13 @@ from rest_framework.parsers import JSONParser
 from .models import Strain
 
 
-"""class StrainModel:
-    def __init__(self, name, slug):
-        self.name = name
-        self.slug = slug"""
+class StrainListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Strain
+        fields = ('name', 'slug', 'category')
 
 
+"""
 class StrainListSerializer(serializers.Serializer):
     id = serializers.UUIDField(read_only=True)
     name = serializers.CharField(max_length=250)
@@ -22,6 +23,20 @@ class StrainListSerializer(serializers.Serializer):
     category = serializers.CharField(read_only=True)
     flavors = serializers.CharField(read_only=True)
 
+    def create(self, validated_data):
+        return Strain.objects.create(**validated_data)
+
+    def update(self, instance, validated_data):
+        #instance.id = validated_data.get("id", instance.id)
+        instance.name = validated_data.get("name", instance.name)
+        instance.slug = validated_data.get("slug", instance.slug)
+        instance.description = validated_data.get("description", instance.description)
+        instance.created = validated_data.get("created", instance.created)
+        instance.category = validated_data.get("category", instance.category)
+        instance.flavors = validated_data.get("flavors", instance.flavors)
+        return instance
+
+"""
 
 """
 def encode():
