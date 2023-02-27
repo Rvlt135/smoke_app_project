@@ -1,5 +1,5 @@
 import uvicorn
-from .settings import settings
+from settings import settings
 
 uvicorn.run(
     'smoke_app.app:app',
