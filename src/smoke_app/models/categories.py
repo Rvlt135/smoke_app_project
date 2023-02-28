@@ -10,5 +10,8 @@ class CategoriesKind(str, Enum):
 
 class CategoriesModel(BaseModel):
     id: int
-    name: CategoriesKind
+    name: str
     description: str
+    slug_name: str
+    rating: int
+
