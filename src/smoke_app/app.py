@@ -4,12 +4,12 @@ from .api import router
 app = FastAPI()
 app.include_router(router)
 
+
+@app.get('/api/healtcheck')
+def healtcheck():
+    return {'Status': 'OK'}
+
 """
-@app.get('/')
-def home():
-    return {'Message': 'Start'}
-
-
 @app.get('/{id}')
 def get_item(pk: int, name: str = None):
     return {"id": pk, "name": name}
